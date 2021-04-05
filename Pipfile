@@ -8,6 +8,11 @@ graphene = "*"
 uuid = "*"
 requests = "*"
 base58 = "*"
+web3 = "*"
+pandas = "*"
+flask = "*"
+flask-web3 = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

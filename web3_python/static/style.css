@@ -1,0 +1,40 @@
+body{
+    opacity: 1;
+    background: none;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  body:after,
+  body:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+  }
+  body:before {
+    background: linear-gradient(to right top, rgb(226, 221, 146) 0%, rgb(199, 134, 230) 50%, rgb(89, 110, 168) 100%);
+    animation: GradAnim 3s ease-in-out 0s infinite alternate;
+  }
+  body:after {
+    background: linear-gradient(to right top, rgb(89, 110, 168) 0%, rgb(199, 134, 230) 50%, rgb(226, 221, 146) 100%);
+    animation: GradAnim 3s ease-in-out -3s infinite alternate;
+  }
+  @keyframes GradAnim {
+    0%{opacity: 1.0}
+    100%{opacity: 0.2}
+  }
+  p {
+    font-family: "PX Grotesk Bold";
+    font-size: 1.5em;
+    mix-blend-mode: difference;
+    display: flex;
+    color: white;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    animation: 2s ease 0s 1 normal both running canvasEnter;
+    will-change: opacity;
+}
