@@ -1,4 +1,3 @@
-  
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,8 +5,13 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
   </head>
   <body>
-    <p>This is where we start.</p>
-    <p>This is where we start.</p>
-    <p>This is where we start.</p>
+    <p>
+      This is where we start
+      <div>
+      <form id='songsubmit' action="/" method="post">
+      <input id="in_song" type="text" name="input_song" placeholder="address"></input>
+      <input type="submit" name='submit'></input>
+      </div>
+      </p>
   </body>
 </html>

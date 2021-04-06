@@ -1,37 +1,35 @@
 import pandas as pd
-from flask import Flask, render_template, request, Response, request, jsonify
 import json
+import solc
+from flask import Flask, render_template, request, Response, request, jsonify
 from flask_web3 import current_web3, FlaskWeb3
 from web3 import Web3
+from os import getenv
+from dotenv import load_dotenv
+from .models import get_balance
 
 
-# Declare a custom Web3 class
-class CustomWeb3(Web3):
-     def customBlockNumber():
-         return self.eth.blockNumber
+load_dotenv()
 
-# Associate a custom FlaskWeb3 extension
-class CustomFlaskWeb3(FlaskWeb3):
-     web3_class = CustomWeb3
+# web3.py instance
+w3 = Web3(Web3.HTTPProvider(getenv('INFURA')))
 
-
-
+ 
 def create_app():
     app = Flask(__name__)
-    app.config.update({'ETHEREUM_PROVIDER': 'http', 'ETHEREUM_ENDPOINT_URI': 'http://localhost:8545'})
 
-    # Declare customized web3 extension
-    web3 = CustomFlaskWeb3(app=app)
-    isinstance(web3, CustomWeb3)
-
-    @app.route("/") 
+    @app.route("/", methods = ["GET", "POST"]) 
     def about():
         """ 
         Our about us page.
         """
-        return render_template('base.html')
-    
-    # Declare route
-    @app.route('/customBlockNumber')
-    def last_odd_block_number():
-        return jsonify({'data': current_web3.customBlockNumber()})
+        
+        if request.method == "GET":
+            return render_template('base.html')
+            
+        if request.method == "POST":
+            input = request.form.get("input_song")
+            message = get_balance(str(input))
+            return render_template('main.html', recommended_song=message)
+        
+    return app

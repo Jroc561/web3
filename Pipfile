@@ -13,6 +13,9 @@ pandas = "*"
 flask = "*"
 flask-web3 = "*"
 python-dotenv = "*"
+py-solc = "*"
+flask-restful = "*"
+flask-marshmallow = "*"
 
 [dev-packages]
 
