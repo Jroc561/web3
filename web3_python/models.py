@@ -12,7 +12,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_balance(wallet):
-    es = etherscan.Client(api_key=getenv('ETHERSCAN'))
     w3 = Web3(Web3.HTTPProvider(getenv('INFURA')))
     wei = w3.eth.get_balance(wallet)
     return w3.fromWei(wei, 'ether')

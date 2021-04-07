@@ -1,7 +1,6 @@
 import pandas as pd
 import json
-import solc
-from flask import Flask, render_template, request, Response, request, jsonify
+from flask import Flask, render_template, request, Response, request, jsonify, redirect, url_for
 from flask_web3 import current_web3, FlaskWeb3
 from web3 import Web3
 from os import getenv
@@ -23,13 +22,15 @@ def create_app():
         """ 
         Our about us page.
         """
-        
-        if request.method == "GET":
-            return render_template('base.html')
-            
-        if request.method == "POST":
-            input = request.form.get("input_song")
-            message = get_balance(str(input))
-            return render_template('main.html', recommended_song=message)
+        request_method = request.method    
+        if request.method == 'POST':
+            address = request.form['address']
+            return redirect(url_for('adr', address=address))
+        return render_template('base.html', request_method=request_method)
+
+    @app.route('/<string:address>')
+    def adr(address):
+        balance = get_balance(str(address))
+        return render_template('main.html', f'{address}', balance=balance)
         
     return app
