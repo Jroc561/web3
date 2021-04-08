@@ -16,6 +16,8 @@ python-dotenv = "*"
 py-solc = "*"
 flask-restful = "*"
 flask-marshmallow = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
