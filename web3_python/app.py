@@ -30,10 +30,10 @@ def create_app():
     @app.route('/<string:address>')
     def adr(address):
         balance = get_balance(str(address))
-        return render_template('main.html', balance=balance)
+        return render_template('main.html', balance=balance, address=address)
 
     @app.route('/connect')
     def connect():
-        return render_template('test.html')
+        return render_template('index.html')
         
     return app
