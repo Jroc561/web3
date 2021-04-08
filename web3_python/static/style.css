@@ -80,7 +80,6 @@ body{
   .p {
     font-family: Helvetica;
     font-size: 1.5em;
-    mix-blend-mode: difference;
     display: flex;
     color: white;
     -webkit-box-pack: center;
@@ -89,6 +88,4 @@ body{
     align-items: center;
     width: 100vw;
     height: 100vh;
-    animation: 2s ease 0s 1 normal both running canvasEnter;
-    will-change: opacity;
   }
