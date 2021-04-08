@@ -1,7 +1,6 @@
 import pandas as pd
-import json
 from flask import Flask, render_template, request, Response, request, jsonify, redirect, url_for
-from flask_web3 import current_web3, FlaskWeb3
+from flask_restful import Api, Resource, reqparse
 from web3 import Web3
 from os import getenv
 from dotenv import load_dotenv
@@ -31,6 +30,10 @@ def create_app():
     @app.route('/<string:address>')
     def adr(address):
         balance = get_balance(str(address))
-        return render_template('main.html', f'{address}', balance=balance)
+        return render_template('main.html', balance=balance)
+
+    @app.route('/connect')
+    def connect():
+        return render_template('index.html')
         
     return app

@@ -1,11 +1,7 @@
 # These imports are only used to facilitate annotation type: type, intelligent prompt function!
 from requests import Timeout
 from web3 import Web3
-from web3.eth import Eth, Contract
 from flask_web3 import FlaskWeb3
-import json
-import etherscan
-from web3 import Web3
 from os import getenv
 from dotenv import load_dotenv
 
