@@ -34,6 +34,6 @@ def create_app():
 
     @app.route('/connect')
     def connect():
-        return render_template('index.html')
+        return render_template('test.html')
         
     return app
