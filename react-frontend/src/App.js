@@ -5,6 +5,7 @@ import Web3 from "web3";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { getChainData } from "./utilities/chains";
+import Web3Data from './components/Web3Data.js';
 
 
 interface IAppState {
