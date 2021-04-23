@@ -18,6 +18,8 @@ flask-restful = "*"
 flask-marshmallow = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+etherscan = "*"
+schedule = "*"
 
 [dev-packages]
 
